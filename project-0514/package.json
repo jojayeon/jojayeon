@@ -1,0 +1,11 @@
+{
+  "name": "project-0514",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: 에베베~~\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}
