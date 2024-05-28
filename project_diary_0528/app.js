@@ -72,15 +72,8 @@ const server = http.createServer((req,res)=>{
         res.writeHead(200,{"content-type": "text/html; charset = utf-8"});
         res.end(data);
       });
-    if(req.url === "/submit"){
-        fs.readFile(path.join(__dirname, "main.css"), (err, data)=>{
-          if(err){
-            console.log("err~!~!~!~");
-          }
-          res.writeHead(200,{"content-type": "text/css; charset = utf-8"});
-          res.end(data);
-        });
-      }
+//! 문제 1 저장하고서 css가 적용이 안됨
+
       let body = "";
       req.on("data", (check)=>{
         body += check.toString();
@@ -90,19 +83,19 @@ const server = http.createServer((req,res)=>{
         const title = parseData.get("title");
         const content = parseData.get("content")
         const date = parseData.get("date")
-
+        
         const jsonData = {
           title: title,
           date: date,
           content: content,
         };
-
+        
         const jsonDataString = JSON.stringify(jsonData, null, 2);
         fs.writeFile(path.join(__dirname, "public/data.json"),jsonDataString, (err)=>{
           if(err){
             console.log(err);
           }
-          res.writeHead(200,{"context-type": "application/json; charset = utf-8"});
+          res.writeHead(200,{ "Context-Type": "application/json; charset=utf-8" });
           res.end();
         }); 
       })
