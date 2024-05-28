@@ -3,7 +3,7 @@
 
 
 
-
+//이건 nodejs는 이렇게해서 불러오면 됨
 //함수인거
 //module.exports = today;
 
